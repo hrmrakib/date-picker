@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ModeToggle } from "./mode-toggle";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Header = () => {
   return (
@@ -30,7 +30,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <ModeToggle />
+        {/* Theme */}
+        <ThemeToggle />
       </div>
     </header>
   );
