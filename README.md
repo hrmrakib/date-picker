@@ -1,4 +1,4 @@
-## [Live Preview](https://gadget-plus-ecom.vercel.app/)
+## [Live Preview](https://date-pickea.vercel.app/)
 
 
 ## <a name="quick-start">🤸 Quick Start</a>
@@ -16,8 +16,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/hrmrakib/gadget-plus-client.git
-cd gadget-plus-client
+git clone https://github.com/hrmrakib/date-picker.git
+cd date-picker
 ```
 
 **Installation**
@@ -25,7 +25,7 @@ cd gadget-plus-client
 Install the project dependencies using npm:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 **Running the Project**
@@ -34,7 +34,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
+Open [http://localhost:5173](http://localhost:3000) in your browser to view the project.
 
 
 
