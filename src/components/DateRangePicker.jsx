@@ -3,7 +3,9 @@
 import * as React from "react";
 import { addDays, format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { DateRange } from "react-day-picker";
+import { useTheme } from "next-themes";
+
+// import { DateRange } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -26,12 +28,7 @@ const DateRangePicker = ({ className }) => {
     from: new Date(2024, 0, 20),
     to: addDays(new Date(2024, 0, 20), 20),
   });
-  //   const [date, setDate] =
-  //   (React.useState < DateRange) |(undefined >
-  //       {
-  //         from: new Date(2024, 0, 20),
-  //         to: addDays(new Date(2024, 0, 20), 20),
-  //       });
+  const { theme } = useTheme();
 
   const presets = [
     {
@@ -105,16 +102,28 @@ const DateRangePicker = ({ className }) => {
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className='w-auto p-0 flex' align='start'>
+        <PopoverContent
+          className={`w-auto p-0 flex ${
+            theme === "light" ? "bg-white text-black" : "bg-black text-white"
+          } `}
+          align='start'
+        >
           <Select
             onValueChange={(value) =>
               setDate(presets.find((preset) => preset.label === value)?.dates)
             }
           >
-            <SelectTrigger>
+            <SelectTrigger className='p-2 m-1.5 md:m-5'>
               <SelectValue placeholder='Select' />
             </SelectTrigger>
-            <SelectContent position='popper'>
+            <SelectContent
+              position='popper'
+              className={`${
+                theme === "light"
+                  ? "bg-white text-black"
+                  : "bg-black text-white"
+              }`}
+            >
               {presets.map((preset) => (
                 <SelectItem key={preset.label} value={preset.label}>
                   {preset.label}
@@ -123,7 +132,14 @@ const DateRangePicker = ({ className }) => {
               <SelectItem value='custom'>Custom Range</SelectItem>
             </SelectContent>
           </Select>
-          <div className='border-t border-border'>
+
+          <div
+            className={`${
+              theme === "light"
+                ? "border-t border-border"
+                : "bg-black text-white border-0"
+            }`}
+          >
             <Calendar
               initialFocus
               mode='range'
